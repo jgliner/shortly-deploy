@@ -13,8 +13,9 @@ db.userSchema.pre('save', function(next) {
   });
 });
 
-db.userSchema.statics.comparePassword = function(attemptedPassword, cb) {
-  bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
+db.userSchema.statics.comparePassword = function(attemptedPassword, hashedPassword, cb) {
+  bcrypt.compare(attemptedPassword, hashedPassword, function(err, isMatch) {
+    if (err) {return console.error(err);}
     cb(isMatch);
   });
 };
