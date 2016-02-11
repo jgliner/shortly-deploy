@@ -69,7 +69,10 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: ['./public/dist/build.js', './public/dist/build.min.js']
+    clean: {
+      build: ['./public/dist/build.js', './public/dist/build.min.js'],
+      deploy: ['./public/dist/build.js']
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -103,7 +106,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', ['clean', 'concat', 'uglify', 'test']);
+  grunt.registerTask('build', ['clean:build', 'concat', 'uglify', 'test']);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
@@ -113,7 +116,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy', ['build', 'upload']);
+  grunt.registerTask('deploy', ['build', 'clean:deploy', 'upload']);
 
 
 };
