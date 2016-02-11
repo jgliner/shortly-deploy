@@ -7,7 +7,15 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['./public/**/*.js'],
+        src: [
+        './public/client/app.js',
+        './public/client/link.js',
+        './public/client/links.js',
+        './public/client/linkview.js',
+        './public/client/linksview.js',
+        './public/client/createLinkView.js',
+        './public/client/router.js'
+        ],
         dest: './public/dist/build.js'
       }
     },
