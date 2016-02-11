@@ -8,5 +8,14 @@ var userSchema = new Schema({
   timestamp: {type: Date, default: Date.now}
 });
 
+var linkSchema = new Schema({
+  url: String,
+  baseUrl: String,
+  code: String,
+  title: String,
+  visits: Number,
+  timestamp: {type: Date, default: Date.now}
+});
+
 
 exports.userSchema = userSchema;
