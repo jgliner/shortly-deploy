@@ -13,8 +13,13 @@ db.userSchema.pre('save', function(next) {
   });
 });
 
-var User = mongoose.model('User', db.userSchema);
+db.userSchema.statics.comparePassword = function(attemptedPassword, cb) {
+  bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
+    cb(isMatch);
+  });
+};
 
+var User = mongoose.model('User', db.userSchema);
 module.exports = User;
 
 // var User = db.Model.extend({
