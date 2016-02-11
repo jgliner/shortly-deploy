@@ -68,6 +68,8 @@ module.exports = function(grunt) {
       prodServer: {
       }
     },
+
+    clean: ['./public/dist/build.js', './public/dist/build.min.js']
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -78,6 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('server-dev', function (target) {
     // Running nodejs in a different process and displaying output on the main console
@@ -100,17 +103,17 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', ['nodemon', 'concat', 'uglify', 'test']);
+  grunt.registerTask('build', ['clean', 'concat', 'uglify', 'test']);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
-      grunt.task.run(['deploy', 'shell:local']);
+      grunt.task.run(['shell:local']);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
   });
 
-  grunt.registerTask('deploy', ['build']);
+  grunt.registerTask('deploy', ['build', 'upload']);
 
 
 };

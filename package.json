@@ -32,6 +32,7 @@
     "sqlite3": "~3.1.0"
   },
   "devDependencies": {
+    "grunt-contrib-clean": "^0.7.0",
     "supertest": "^0.10.0"
   }
 }
