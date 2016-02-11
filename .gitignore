@@ -19,3 +19,6 @@ Icon
 .floobit
 .floo
 .flooignore
+
+#SSH files
+.ssh/*
