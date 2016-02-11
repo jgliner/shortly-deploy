@@ -3,9 +3,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
-      options: {
-        separator: ';'
-      },
       dist: {
         src: [
         './public/client/app.js',
@@ -124,7 +121,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy', ['build', 'clean:deploy', 'upload']);
+  grunt.registerTask('deploy', ['build', 'upload']);
 
 
 };
