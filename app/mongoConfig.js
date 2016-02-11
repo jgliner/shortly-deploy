@@ -19,3 +19,4 @@ var linkSchema = new Schema({
 
 
 exports.userSchema = userSchema;
+exports.linkSchema = linkSchema;
