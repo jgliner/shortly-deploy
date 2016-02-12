@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "grunt-contrib-clean": "^0.7.0",
-    "supertest": "^0.10.0"
+    "supertest": "^0.10.0",
+    "grunt": "~0.4.5"
   }
 }
